@@ -12,7 +12,7 @@ try {
     $day = $this.Input.Detail.RouteDay
 
     # Update BIF014
-    $BIF014.Notes = $this.Input.Detail.DriverComment
+    $BIF014.Notes = if($this.Input.Detail.DriverComment -ne '' -or $this.Input.Detail.DriverComment -ne $null){"$($this.Input.Detail.DriverComment)"}else{"$($BIF014.Notes)"}
     $BIF014.UDF_Char_1 = $this.Input.Detail.Detail.ContainerLatitude
     $BIF014.EquipmentChar2 = $this.Input.Detail.Detail.ContainerLongitude   
     
